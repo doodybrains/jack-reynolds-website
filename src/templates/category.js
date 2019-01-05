@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import '../assets/stylesheets/reset.scss'
+import '../assets/stylesheets/base.scss'
+import '../assets/stylesheets/index.scss'
 
 class CategoryTemplate extends Component {
   render() {
