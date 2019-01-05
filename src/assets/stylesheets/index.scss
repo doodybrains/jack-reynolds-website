@@ -1,3 +1,81 @@
 .main-wrapper {
-  border: 3px solid black;
+  position: relative;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: white;
+  height: 150px;;
+}
+
+.container {
+  margin-top: 150px;
+  display: flex;
+  width: 100%;
+  align-content: flex-start;
+  padding: 20px;
+
+  .nav {
+    position: fixed;
+    left: 0;
+    top: 150px;
+    width: 30%;
+    padding: 20px;
+
+    p.active {
+      color: mediumpurple;
+    }
+  }
+
+  .two-col-images {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 30%;
+
+    img {
+      display: block;
+      width: 50%;
+      height: auto;
+      padding: 30px;
+    }
+  }
+
+  .one-col-images {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 30%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      padding: 30px;
+    }
+  }
+
+  .images-with-specs {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 30%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      padding: 30px;
+    }
+  }
 }

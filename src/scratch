@@ -1,0 +1,7 @@
+{data.allContentfulPaintings.edges.map((cat, i) => {
+  return (
+    <div key={i} className="category-link">
+      {cat.node.title}
+    </div>
+  )
+})}

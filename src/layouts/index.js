@@ -1,9 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import './reset.scss'
-import '../assets/stylesheets/base.scss'
-import '../assets/stylesheets/index.scss'
 
 import favicon from '../assets/favicon.ico'
 
