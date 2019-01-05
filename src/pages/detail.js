@@ -28,10 +28,10 @@ const DetailPage = ({data}) => (
 
 export const query = graphql`
   query DetailQuery {
-    allContentfulPaintings {
+    allContentfulCategory {
       edges {
         node {
-          title
+          name
         }
       }
     }

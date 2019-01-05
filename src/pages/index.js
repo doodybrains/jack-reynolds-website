@@ -11,10 +11,13 @@ const IndexPage = ({data}) => (
     </div>
     <div className="container">
       <div className="nav">
-        <p>Canvas</p>
-        <p>Cardboard</p>
-        <p>Felt</p>
-        <p>Cotton</p>
+        {data.allContentfulCategory.edges.map((cat, i) => {
+          return (
+            <p key={i} className="category-link">
+              {cat.node.name}
+            </p>
+          )
+        })}
       </div>
 
       <div className="two-col-images">
@@ -30,10 +33,10 @@ const IndexPage = ({data}) => (
 
 export const query = graphql`
   query IndexQuery {
-    allContentfulPaintings {
+    allContentfulCategory {
       edges {
         node {
-          title
+          name
         }
       }
     }

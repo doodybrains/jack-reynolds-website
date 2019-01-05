@@ -30,10 +30,10 @@ const CategoryPage = ({data}) => (
 
 export const query = graphql`
   query CategoryQuery {
-    allContentfulPaintings {
+    allContentfulCategory {
       edges {
         node {
-          title
+          name
         }
       }
     }
