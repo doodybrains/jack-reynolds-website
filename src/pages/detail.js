@@ -11,10 +11,17 @@ const DetailPage = ({data}) => (
     </div>
     <div className="container">
       <div className="nav">
-        <p className="active">Canvas</p>
-        <p>Cardboard</p>
-        <p>Felt</p>
-        <p>Cotton</p>
+        {data.allContentfulMainNavigation.edges.map((cat, i) => {
+          return (
+            cat.node.allCategories.map((post, i)=> {
+              return (
+                <p key={i}>
+                  {post.name}
+                </p>
+              )
+            })
+          )
+        })}
       </div>
 
       <div className="images-with-specs">
@@ -22,16 +29,19 @@ const DetailPage = ({data}) => (
         <p>Name of painting, measurements</p>
       </div>
     </div>
-
   </div>
 )
 
 export const query = graphql`
   query DetailQuery {
-    allContentfulCategory {
+    allContentfulMainNavigation {
       edges {
         node {
-          name
+          allCategories {
+            ... on ContentfulCategory {
+              name
+            }
+          }
         }
       }
     }

@@ -11,10 +11,17 @@ const CategoryPage = ({data}) => (
     </div>
     <div className="container">
       <div className="nav">
-        <p className="active">Canvas</p>
-        <p>Cardboard</p>
-        <p>Felt</p>
-        <p>Cotton</p>
+        {data.allContentfulMainNavigation.edges.map((cat, i) => {
+          return (
+            cat.node.allCategories.map((post, i)=> {
+              return (
+                <p key={i}>
+                  {post.name}
+                </p>
+              )
+            })
+          )
+        })}
       </div>
 
       <div className="one-col-images">
@@ -30,10 +37,14 @@ const CategoryPage = ({data}) => (
 
 export const query = graphql`
   query CategoryQuery {
-    allContentfulCategory {
+    allContentfulMainNavigation {
       edges {
         node {
-          name
+          allCategories {
+            ... on ContentfulCategory {
+              name
+            }
+          }
         }
       }
     }
