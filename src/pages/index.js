@@ -11,11 +11,15 @@ const IndexPage = ({data}) => (
     </div>
     <div className="container">
       <div className="nav">
-        {data.allContentfulCategory.edges.map((cat, i) => {
+        {data.allContentfulMainNavigation.edges.map((cat, i) => {
           return (
-            <p key={i} className="category-link">
-              {cat.node.name}
-            </p>
+            cat.node.allCategories.map((post, i)=> {
+              return (
+                <p key={i}>
+                  {post.name}
+                </p>
+              )
+            })
           )
         })}
       </div>
@@ -33,10 +37,14 @@ const IndexPage = ({data}) => (
 
 export const query = graphql`
   query IndexQuery {
-    allContentfulCategory {
+    allContentfulMainNavigation {
       edges {
         node {
-          name
+          allCategories {
+            ... on ContentfulCategory {
+              name
+            }
+          }
         }
       }
     }
