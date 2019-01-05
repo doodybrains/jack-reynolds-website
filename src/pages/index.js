@@ -13,11 +13,11 @@ const IndexPage = ({data}) => (
       <div className="nav">
         {data.allContentfulMainNavigation.edges.map((cat, i) => {
           return (
-            cat.node.allCategories.map((post, i)=> {
+            cat.node.allCategories.map((thing, i)=> {
               return (
-                <p key={i}>
-                  {post.name}
-                </p>
+                <a key={i} href={thing.slug}>
+                  {thing.name}
+                </a>
               )
             })
           )
@@ -27,7 +27,9 @@ const IndexPage = ({data}) => (
       <div className="two-col-images">
         {data.allContentfulThing.edges.map((cat, i) => {
           return (
-            <img key={i} src={cat.node.mainImage.file.url} alt="" />
+            <a key={i} href={`${cat.node.category[0].name.toLowerCase()}/${cat.node.slug}`}>
+              <img key={i} src={cat.node.mainImage.file.url} alt="" />
+            </a>
           )
         })}
       </div>
@@ -44,6 +46,7 @@ export const query = graphql`
           allCategories {
             ... on ContentfulCategory {
               name
+              slug
             }
           }
         }
@@ -52,6 +55,7 @@ export const query = graphql`
     allContentfulThing {
       edges {
         node {
+          slug
           category {
             ... on ContentfulCategory {
               name

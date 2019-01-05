@@ -1,7 +1,10 @@
 .main-wrapper {
   position: relative;
 }
-
+a {
+  text-decoration: none;
+  color: black;
+}
 .header {
   position: fixed;
   top: 0;
@@ -28,8 +31,8 @@
     top: 150px;
     width: 30%;
     padding: 20px;
-
-    p.active {
+    a {display: block;}
+    a.active {
       color: mediumpurple;
     }
   }
@@ -41,11 +44,16 @@
     flex-wrap: wrap;
     margin-left: 30%;
 
-    img {
+    a {
       display: block;
       width: 50%;
-      height: auto;
       padding: 30px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
   }
 
